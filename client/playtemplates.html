@@ -20,15 +20,3 @@
   <div class="panel-body">{{> easyform nameForm}}</div>
 </div>
 </template>
-
-<template name="easyform">  
-  <form role="form">
-    {{#each inputs}}
-    <div class="form-group">
-      <label for='{{id}}'>{{label}}</label>
-      <input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}">
-    </div>
-    {{/each}}                
-    <button id="{{submitId}}" class="btn">{{submitName}}</button>
-  </form>
-</template>
