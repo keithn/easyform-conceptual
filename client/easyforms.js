@@ -24,3 +24,7 @@ EasyForm.form=  function(f) {
   if(!f.submitId) f.submitId = 'easyform-' + EasyForm.id++;
   return f;  
 }
+
+UI.registerHelper('easyFormIsInput', function(inputType) {    
+    return this.type === 'dropdown';
+});

@@ -21,6 +21,7 @@ Template.hello.contactDetailsForm = function() {
       {model: 'email', type: 'email'},
       {model: 'mobile'},
       {model: 'address'},
+      {model: 'city', options: [{value:'Aucland'}, {value:'Wellington'}], type: 'dropdown'},
       {model: 'password', type: 'password'},
     ],
     'submitName' : 'Save',    

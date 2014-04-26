@@ -3,7 +3,15 @@
     {{#each inputs}}
     <div class="form-group">
       <label for='{{id}}'>{{label}}</label>
+      {{#if easyFormIsInput 'dropdown'}}
+      <select id="{{id}}" class="form-control">  
+      {{#each options}}
+      <option>{{value}}</option>
+      {{/each}}
+      </select>
+      {{else}}
       <input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}">
+      {{/if}}
     </div>
     {{/each}}                
     <button id="{{submitId}}" class="btn">{{submitName}}</button>
