@@ -16,10 +16,10 @@ if(Meteor.isClient) {
     var d = {}
     _.each(template.data.inputs, function(i) {       
       var el =  template.find('#' + i.id);
-      if(el) {
-        //if(el.attributes['data-original']) console.log(el.attributes['data-original'].value);
-        //console.log(el.value);
-        if((el.attributes['data-original'] && el.attributes['data-original'].value != el.value) || i.model==='_id') {
+      if(el) {        
+        if((el.attributes['data-original'] && el.attributes['data-original'].value != el.value) 
+            || (!el.attributes['data-original'] && el.value)
+            || i.model==='_id') {
           d[i.model] = el.value;  
         }
       }
