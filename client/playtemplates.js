@@ -13,7 +13,13 @@ Template.hello.nameForm = function() {
   });
 };
 
-Template.hello.contactDetailsForm = function() {
+Template.hello.person = function()
+{
+  return { name: 'Bob'};
+}
+
+Template.hello.contactDetailsForm = function(data) {  
+  console.log(data);
   return EasyForm.form({    
     'inputs': [
       {model: 'name'},
@@ -29,5 +35,5 @@ Template.hello.contactDetailsForm = function() {
       event.preventDefault();
       console.log(EasyForm.getValues(template));
     }
-  });
+  }, data);
 };

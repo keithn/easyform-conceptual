@@ -14,12 +14,13 @@ EasyForm.setupEvents = function(template, self) {
   template.events(evs);  
 };
 
-EasyForm.form=  function(f) {
+EasyForm.form=  function(f, d) {
   _.each(f.inputs, function(i){
     if(!i.id) i.id = 'easyform-'+EasyForm.id++;
     if(!i.type) i.type = 'text';
     if(!i.label && i.model) i.label = i.model.charAt(0).toUpperCase() + i.model.slice(1);;
     if(!i.placeholder) i.placeholder = i.label;
+    if(d && d[i.model]) i.value = d[i.model];
   });
   if(!f.submitId) f.submitId = 'easyform-' + EasyForm.id++;
   return f;  
