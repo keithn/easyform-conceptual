@@ -29,3 +29,8 @@ EasyForm.form=  function(f, d) {
 UI.registerHelper('easyFormIsInput', function(inputType) {    
     return this.type === 'dropdown';
 });
+
+UI.registerHelper('easyFromIsInputVisible', function() {    
+    return this.type !== 'hidden';
+});
+

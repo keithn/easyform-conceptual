@@ -1,6 +1,7 @@
 <template name="easyform">  
   <form role="form">
     {{#each inputs}}
+    {{#if easyFromIsInputVisible}}
     <div class="form-group">
       <label for='{{id}}'>{{label}}</label>
       {{#if easyFormIsInput 'dropdown'}}
@@ -13,6 +14,7 @@
       <input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}" value="{{value}}">
       {{/if}}
     </div>
+    {{/if}}
     {{/each}}                
     <button id="{{submitId}}" class="btn">{{submitName}}</button>
   </form>

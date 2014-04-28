@@ -15,13 +15,13 @@ Template.hello.nameForm = function() {
 
 Template.hello.person = function()
 {
-  return { name: 'Bob'};
+  return { name: 'Bob', description: 'The Builder', email: 'bob@thebuilder.com'};
 }
 
-Template.hello.contactDetailsForm = function(data) {  
-  console.log(data);
+Template.hello.contactDetailsForm = function(data) {    
   return EasyForm.form({    
     'inputs': [
+      {model: '_id', type: 'hidden'},
       {model: 'name'},
       {placeholder: 'Description of Whoever', model: 'description'},      
       {model: 'email', type: 'email'},
