@@ -34,6 +34,7 @@ Template.hello.contactDetailsForm = function(data) {
     'submitAction': function(event, template) {
       event.preventDefault();
       console.log(EasyForm.getValues(template));
+      console.log(EasyForm.getChangedValues(template));
     }
   }, data);
 };
