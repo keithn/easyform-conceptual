@@ -1,21 +1,23 @@
-<template name="easyform">  
-  <form role="form">
-    {{#each inputs}}
-    {{#if easyFromIsInputVisible}}
-    <div class="form-group">
-      <label for='{{id}}'>{{label}}</label>
-      {{#if easyFormIsInput 'dropdown'}}
-      <select id="{{id}}" class="form-control">  
-      {{#each options}}
-      <option>{{value}}</option>
-      {{/each}}
+<template name="easyform">      
+  {{#each inputs}}    
+  {{#if easyFormIsInputVisible}}
+  <div class="row">
+  <div class="easyform-row">
+      <div class="col-sm-2"><div class="easyform-label">{{label}}</div></div>
+      <div class="col-sm-8">
+       {{#if easyFormIsInput 'dropdown'}}
+       <select id="{{id}}" class="form-control" >  
+        {{#each options}}
+        <option>{{value}}</option>
+        {{/each}}
       </select>
       {{else}}
-      <input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}" value="{{value}}" data-original="{{value}}">
+      <input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}" value="{{value}}" data-original="{{value}}" class="form-control">
       {{/if}}
-    </div>
-    {{/if}}
-    {{/each}}                
-    <button id="{{submitId}}" class="btn">{{submitName}}</button>
-  </form>
+    </div>  
+  </div> 
+</div>
+{{/if}}
+{{/each}}                
+<button id="{{submitId}}" class="btn">{{submitName}}</button>    
 </template>

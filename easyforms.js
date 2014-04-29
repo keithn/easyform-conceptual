@@ -44,20 +44,20 @@ if(Meteor.isClient) {
       if(d && d[i.model]) i.value = d[i.model];
     });
     if(!f.submitId) f.submitId = 'easyform-' + EasyForm.id++;
-    return f;  
+    return f;  2
   }
 
   UI.registerHelper('easyFormIsInput', function(inputType) {    
     return this.type === 'dropdown';
   });
 
-  UI.registerHelper('easyFromIsInputVisible', function() {    
+  UI.registerHelper('easyFormIsInputVisible', function() {    
     return this.type !== 'hidden';
   });
 }
 
 if(Meteor.isServer) {
-  EasyForm.mongoUpdate = function(col, id, changed) {
+  EasyForm.update = function(col, id, changed) {
     // 
   }
 }
