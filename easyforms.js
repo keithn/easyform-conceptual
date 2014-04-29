@@ -59,7 +59,10 @@ if(Meteor.isClient) {
   };
 
   EasyForm.phoneNumber = function(input, value, target, context, template) {    
-    return value.match(/^[\d\s]+$/)      
+    return value.match(/^[\d\s]+$/);
+  }
+  EasyForm.mustBeAlphaNumeric = function(input, value, target, context, template) {    
+    return value.match(/^[A-Za-z\s\d]*$/); 
   }
 
   EasyForm.form = function(f, d) {

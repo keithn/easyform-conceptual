@@ -13,8 +13,7 @@ Template.hello.nameForm = function() {
   });
 };
 
-Template.hello.person = function()
-{
+Template.hello.person = function() {
   return { name: 'Bob', description: 'The Builder', email: 'bob@thebuilder.com'};
 }
 
@@ -25,8 +24,8 @@ Template.hello.contactDetailsForm = function(data) {
       {model: 'name'},
       {placeholder: 'Description of Whoever', model: 'description'},      
       {model: 'email', type: 'email'},
-      {model: 'mobile', validate: EasyForm.phoneNumber},
-      {model: 'address'},
+      {model: 'mobile', validate: EasyForm.phoneNumber, error: 'must only be digits'},
+      {model: 'address', validate: EasyForm.mustBeAlphaNumeric, error: 'must be alpha'},
       {model: 'city', options: [{value:'Aucland'}, {value:'Wellington'}], type: 'dropdown'},
       {model: 'password', type: 'password'},
     ],
