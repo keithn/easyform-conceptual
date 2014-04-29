@@ -29,13 +29,11 @@ Template.hello.contactDetailsForm = function(data) {
       {model: 'city', options: [{value:'Aucland'}, {value:'Wellington'}], type: 'dropdown'},
       {model: 'password', type: 'password'},
     ],
-    'onValidateError' : function(input, value, target, context, template) {
-      console.log("error");
+    'onValidateError' : function(input, value, target, context, template) {      
       var el = template.find('#' + input.id + '-error');
       if(el) $(el).show();                        
     },
-    'onValidateOk' : function(input, value, target, context, template) {
-      console.log("ok");
+    'onValidateOk' : function(input, value, target, context, template) {      
       var el = template.find('#' + input.id + '-error');
       if(el) $(el).hide();                        
     },
