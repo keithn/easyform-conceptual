@@ -25,11 +25,21 @@ Template.hello.contactDetailsForm = function(data) {
       {model: 'name'},
       {placeholder: 'Description of Whoever', model: 'description'},      
       {model: 'email', type: 'email'},
-      {model: 'mobile'},
+      {model: 'mobile', validate: EasyForm.phoneNumber},
       {model: 'address'},
       {model: 'city', options: [{value:'Aucland'}, {value:'Wellington'}], type: 'dropdown'},
       {model: 'password', type: 'password'},
     ],
+    'onValidateError' : function(input, value, target, context, template) {
+      console.log("error");
+      var el = template.find('#' + input.id + '-error');
+      if(el) $(el).show();                        
+    },
+    'onValidateOk' : function(input, value, target, context, template) {
+      console.log("ok");
+      var el = template.find('#' + input.id + '-error');
+      if(el) $(el).hide();                        
+    },
     'submitName' : 'Save',    
     'submitAction': function(event, template) {
       event.preventDefault();

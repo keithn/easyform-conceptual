@@ -4,7 +4,7 @@
   <div class="row">
   <div class="easyform-row">
       <div class="col-sm-2"><div class="easyform-label">{{label}}</div></div>
-      <div class="col-sm-8">
+      <div class="col-sm-6">
        {{#if easyFormIsInput 'dropdown'}}
        <select id="{{id}}" class="form-control" >  
         {{#each options}}
@@ -15,6 +15,11 @@
       <input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}" value="{{value}}" data-original="{{value}}" class="form-control">
       {{/if}}
     </div>  
+    <div class="col-sm-2">
+    <div id="{{id}}-error" hidden>
+      Error
+    </div>
+    </div>
   </div> 
 </div>
 {{/if}}

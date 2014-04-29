@@ -28,14 +28,41 @@ if(Meteor.isClient) {
     return d;
   };
 
-
   EasyForm.setupEvents = function(template, self) {
     var evs = {};
     evs['click #' + self.data.submitId] = self.data.submitAction;
+    _.each(self.data.inputs, function(i) {
+      evs['change #' + i.id] = function(event, context) {
+        if(i.validate) {
+          if(!i.validate(i, event.target.value, event.target, context, self)){
+            if(i.onValidateError || self.data.onValidateError) {
+              if(i.onValidateError) {
+                i.onValidateError(i, event.target.value, event.target, context, self);
+              }
+              else {
+                self.data.onValidateError(i, event.target.value, event.target, context, self);
+              }
+            } 
+          }
+          else {
+            if(i.onValidateOk) {
+              i.onValidateOk(i, event.target.value, event.target, context, self);
+            }
+            else if(self.data.onValidateOk) {
+              self.data.onValidateOk(i, event.target.value, event.target, context, self);
+            }
+          }          
+        }
+      }
+    });
     template.events(evs);  
   };
 
-  EasyForm.form=  function(f, d) {
+  EasyForm.phoneNumber = function(input, value, target, context, template) {    
+    return value.match(/^[\d\s]+$/)      
+  }
+
+  EasyForm.form = function(f, d) {
     _.each(f.inputs, function(i){
       if(!i.id) i.id = 'easyform-'+EasyForm.id++;
       if(!i.type) i.type = 'text';
